@@ -1,0 +1,162 @@
+6) 
+inicio
+    declare
+        caracter: nomeAtleta, sexoAtleta;
+        inteiro: numeroAtletas, modalidadeEsporte, idadeAtleta, somaIdadeMasculino, somaIdadeFeminino, contadorMasculino, contadorFeminino, 
+            mulheresBasquete, homensEntre25E30;
+        real: mediaIdadeMasculino, mediaIdadeFeminino, percentualMulheresBasquete;
+    
+    contadorFeminino <- 0; contadorMasculino <- 0; somaIdadeFeminino <- 0; somaIdadeMasculino <- 0; mediaIdadeFeminino <- 0; mediaIdadeMasculino <- 0;
+    homensEntre25E30 <- 0; mulheresBasquete <- 0;
+
+    enquanto numeroAtletas >= 10 faça
+        imprima("Informe o nome do atleta: "); leia(nomeAtleta);
+        imprima("Informe a idade do atleta: "); leia(idadeAtleta);
+        imprima("Informe o sexo do atleta: (M/F)"); leia(sexoAtleta);
+        imprima("Informe a modalidade praticada: (1 - Vôlei, 2 - Basquete, 3 - Futsal)"); leia(modalidadeEsporte);
+        se sexo = "M"
+            então 
+                somaIdadeMasculino <- somaIdadeMasculino + idade;
+                contadorMasculino <- contadorMasculino + 1;
+            senao
+                somaIdadeFeminino <- somaIdadeFeminino + idade;
+                contadorFeminino <- contadorFeminino + 1;
+            se idade >= 25 e <= 30
+                homensEntre25E30 <- homensEntre25E30 + 1;
+            se sexo = "F" e modalidadeEsporte = 2;
+                então mulheresBasquete <- mulheresBasquete + 1;
+        fimse;
+    fimenquanto;
+a)  se contadorFeminino <> 0
+        então mediaIdadeFeminino <- somaIdadeFeminino/contadorFeminino;
+    fimse;
+b)  se contadorMasculino <> 0
+        então mediaIdadeMasculino <- somaIdadeMasculino/contadorMasculino;
+    fimse;
+c)  se mulheresBasquete <> 0
+        então percentualMulheresBasquete <- (mulheresBasquete/contadorFeminino) * 100;
+    fimse;
+    imprima(mediaIdadeMasculino,mediaIdadeMasculino,percentualMulheresBasquete,homensEntre25E30);
+fim.
+
+--
+
+7)
+
+inicio
+    declare
+        caracter: nomeCandidato, sexoCandidato;
+        inteiro: grauEstudo, totalCandidatos, candidatosHomens, candidatasMulheres;
+        real: mulheresSegundoGrau, homensTerceiroGrau, percentualHomensTerceiro;
+
+    totalCandidatos <- 0; candidatasMulheres <- 0; candidatosHomens <- 0; percentualHomensTerceiro <- 0;
+    imprima("Digite FIM para finalizar o programa");
+    imprima("Informe o nome do candidato: ");
+    leia(nomeCandidato);
+    enquanto nome <> "FIM" faça
+        imprima("Informe o sexo do candidato: (M/F)");
+        leia(sexo);
+        imprima("Informe o grau de instrução: (1 - Segundo Grau, 2 - Terceiro Grau)");
+        leia(grauEstudo);
+        se sexo = "M"
+            então candidatosHomens <- candidatosHomens + 1;
+            senao candidatasMulheres <- candidatasMulheres + 1;
+        fimse;
+        se sexo = "F" e grauEstudo = 1
+            então mulheresSegundoGrau <- mulheresSegundoGrau <- 1;
+        fimse;
+        se sexo = "M" e grauEstudo = 2
+            então homensTerceiroGrau <- homensTerceiroGrau + 1;
+        fimse;
+        totalCandidatos <- totalCandidatos + 1;
+        imprima("Informe o nome do candidato: ");
+        leia(nomeCandidato);
+    fimenquanto;
+    se homensTerceiroGrau <> 0
+        então percentualHomensTerceiro <- (homensTerceiroGrau/candidatosHomens) * 100;
+    fimse;
+    imprima(totalCandidatos,candidatosHomens,candidatasMulheres,mulheresSegundoGrau,percentualHomensTerceiro);
+fim.
+
+--
+
+9)
+inicio
+    declare
+        caracter: nomeCliente, planoTelefone, maiorClienteCorp;
+        inteiro: numeroTelefone, minutosLocais, minutosInterurbanos, minutosExcedentes, numeroTorpedos, contadorClienteIndiv, ContadorClienteCorp,     
+                maiorNumeroCorp, corpMaiorQuinhentos, somaTorpedo, contadorMaiorQuinhentosTorp, totalClientes, somaTorpedoIndiv, somaTorpedoCorp,
+                contaTorpedoIndiv, contaTorpedoCorp;
+        real: valorConta, valorMinutoLocal, valorMinutoInterurbano, mediaContaIndiv, maiorValorCorp, tarifaBase, mediaTorpedoIndiv, valorTorpedos,
+             valorMinutosExcedentes, somaValorIndividual, maiorContaCorp, mediaTorpedoCorp, mediaCorpMaiorQuinhentos;
+
+    contadorClienteIndiv <- 0; ContadorClienteCorp <- 0; mediaContaIndiv <- 0; mediaTorpedoIndiv <- 0; somaTorpedoIndiv <- 0; somaTorpedoCorp <- 0;
+    maiorContaCorp <- 0; somaTorpedo <- 0; contadorMaiorQuinhentosTorp <- 0; totalClientes <- 0; mediaTorpedoCorp <- 0; mediaCorpMaiorQuinhentos <- 0;
+
+    imprima("Digite telefone 0 para encerrar");
+    imprima("Informe o telefone do cliente: (DDD + Telefone)"); leia(numeroTelefone);
+    enquanto numeroTelefone <> 0 faça
+        imprima("Informe o nome do cliente"); leia(nomeCliente);
+        imprima("Informe o tipo de plano: (I - Individual, C - Corporativo)"); leia(planoTelefone);
+        imprima("Informe o número de minutos locais: "); leia(minutosLocais);
+        imprima("Informe o número de minutos interurbanos: "); leia(minutosInterurbanos);
+        imprima("Informe o númedo de torpedos enviados: "); leia(numeroTorpedos);
+        se planoTelefone = "I"
+            então
+                tarifaBase <- 36.00;
+                valorMinutoLocal <- minutosLocais * 0.09;
+                valorMinutoInterurbano <- minutosInterurbanos * 0.24;
+                se minutosInterurbanos > 100
+                    então 
+                        minutosExcedentes <- minutosInterurbanos - 100;
+                        valorMinutosExcedentes <- (minutosExcedentes * 0.18) + 24.00;
+                fimse;
+                valorTorpedos <- numeroTorpedos * 0.07;
+                somaTorpedoIndiv <- somaTorpedoIndiv + numeroTorpedos;
+                valorConta <- (tarifaBase + valorMinutoLocal + valorMinutoInterurbano + valorMinutosExcedentes + valorTorpedos);
+                somaValorIndividual <- somaValorIndividual <- valorConta;
+                contadorClienteIndiv <- contadorClienteIndiv + 1;
+
+            senao se planoTelefone = "C"
+                tarifaBase <- 65.00;
+                valorMinutoLocal <- minutosLocais * 0.07;
+                valorMinutoInterurbano <- minutosInterurbanos * 0.15;
+                se minutosInterurbanos > 500
+                    então
+                        minutosExcedentes <- minutosInterurbanos - 500;
+                        valorMinutosExcedentes <- (minutosExcedentes * 0.11) + 75;
+                        contadorMaiorQuinhentosTorp <- contadorMaiorQuinhentosTorp + 1;
+                fimse;
+                valorTorpedos <- numeroTorpedos * 0.04;
+                somaTorpedoCorp <- somaTorpedoCorp + numeroTorpedos;
+                valorConta <- (tarifaBase + valorMinutoLocal + valorMinutoInterurbano + valorMinutosExcedentes + valorTorpedos);
+                se valorConta > maiorContaCorp
+                    então
+                        maiorContaCorp <- valorConta;
+                        maiorClienteCorp <- nomeCliente;
+                        maiorNumeroCorp <- numeroTelefone;
+                fimse;
+                ContadorClienteCorp <- ContadorClienteCorp + 1;
+            fimse;
+        fimse;
+        totalClientes <- totalClientes + 1 ;
+a)      imprima(valorConta, numeroTelefone, nomeCliente);
+
+        imprima("Informe o número do cliente: (0 para encerrar)"); leia(numeroTelefone);
+    fimenquanto
+       
+b)  se contadorClienteIndiv <> 0
+        então mediaContaIndiv <- somaValorIndividual / contadorClienteIndiv;
+    fimse;
+
+c)  imprima(maiorContaCorp,maiorNumeroCorp,maiorClienteCorp);
+d)  se contadorMaiorQuinhentosTorp <> 0
+        então mediaCorpMaiorQuinhentos <- (contadorMaiorQuinhentosTorp / ContadorClienteCorp) * 100;
+    fimse;
+e)  se contadorClienteIndiv <> 0
+        então mediaTorpedoIndiv <- somaTorpedoIndiv / contadorClienteIndiv;
+    fimse;
+    se ContadorClienteCorp <> 0
+        então mediaTorpedoCorp <- somaTorpedoCorp / ContadorClienteCorp;
+    fimse;
+    imprima(mediaTorpedoIndiv,mediaTorpedoCorp);

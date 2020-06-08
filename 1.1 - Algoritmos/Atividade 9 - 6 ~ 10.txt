@@ -1,0 +1,92 @@
+6)
+
+inicio
+    declare
+        meses:vetor[1:12] caracter;
+        inteiro: dd, mm, aaaa;
+
+    meses[1]<-"janeiro";
+    meses[2]<-"fevereiro";
+    meses[3]<-"março";
+    meses[4]<-"abril";
+    meses[5]<-"maio";
+    meses[6]<-"junho";
+    meses[7]<-"julho";
+    meses[8]<-"agosto";
+    meses[9]<-"setembro";
+    meses[10]<-"outubro";
+    meses[11]<-"novembro";
+    meses[12]<-"dezembro";
+
+    imprima("Digite dia = 0 para encerrar");
+    imprima("Digita o dia: "); leia(dd);
+
+    enquanto dd <> 0 faça
+        imprima("Digite o mês (1 a 12): "); leia(mm);
+        imprima("Digite o ano (Exemplo: 2020): "); (aaaa);
+        imprima(dd, " de ", meses[mm], " de ", aaaa);
+        imprima("Digite dia = 0 para encerrar");
+        imprima("Digita o dia: "); leia(dd);
+    fimenquanto;
+fim.
+
+--
+
+7)
+
+inicio
+    declare
+        salario:vetor[1:10] real;
+        caracter: nome;
+        inteiro: classe, cont;
+
+    salario[1]<-800.00;
+    salario[2]<-1600.00;
+    salario[3]<-2000.00;
+    salario[4]<-2100.00;
+    salario[5]<-2200.00;
+    salario[6]<-2500.00;
+    salario[7]<-2600.00;
+    salario[8]<-2700.00;
+    salario[9]<-3000.00;
+    salario[10]<-4000.00;
+
+    para cont de 1 até 1500 faça
+        imprima("Digite o nome do funcionário: "); leia(nome);
+        imprima("Digite a classe (1 a 10): "); leia(classe);
+        imprima(nome, " recebe o salário de R$", salario[classe]);
+    fimpara;
+fim.
+
+--
+
+8)
+inicio
+    declare
+        salario:vetor[1:7] real;
+        total:vetor[1:7] inteiro;
+        caracter: nome;
+        inteiro: classe, cont, maior, classeMaior;
+
+    maior <- 0;
+
+    para cont de 1 até 7 faça
+        total[cont] <- 0;
+    fimpara;
+
+    para cont de 1 até 350 faça
+        imprima("Digite o nome: "); leia (nome);
+        imprima("Digite a classe: "); leia (classe);
+        imprima(nome, " recebe o salário de R$", salario[classe])
+        total[classe]<- total[classe] + 1; 
+    fimpara;
+
+    para cont de 1 até 7 faça
+        imprima("O número de funcionários da classe", cont, " é de ", total[cont]);
+        se total[cont] > maior
+            então maior <- total[cont];
+                  classeMaior <- cont;
+        fimse;
+    fimpara;
+    imprima("A classe com mais funcionários é a: ", classeMaior, " com: ", maior, " funcionários.");
+fim.

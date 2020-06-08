@@ -1,0 +1,123 @@
+1)
+inicio
+    declare
+        caracter: nomeAluno, sexoAluno;
+        inteiro: idadeAluno, turnoEstudo, anoEstudo, contador,
+                 contadorNoite, contadorTerceirao, contadorMulheresSegundo,
+                 contadorHomens, contadorMulheres;
+    contador <- 0;
+    contadorNoite <- 0;
+    contadorTerceirao <- 0;
+    contadorMulheresSegundo <- 0;
+    contadorHomens <- 0;
+    contadorMulheres <- 0;
+
+    enquanto contador <= 200 faça
+        imprima("Digite o nome: ");
+        leia(nomeAluno);
+        imprima("Digite o sexo: (M/F)");
+        leia(sexoAluno);
+        imprima("Digite a idade: ");
+        leia(idadeAluno);
+        imprima("Digite o turno: (1 - Manhã, 2 - Tarde, 3 - Noite)");
+        leia(turnoEstudo);
+        imprima("Digite o ano: (1 - Primeiro, 2 - Segundo, 3 - Terceiro)");
+        leia(anoEstudo);
+
+        se turnoEstudo = 3
+            entao contadorNoite <- contadorNoite + 1
+        fimse;
+        se anoEstudo = 3
+            entao contadorTerceirao <- contadorTerceirao + 1;
+        fimse;
+        se sexoAluno = "F" e anoEstudo = 2
+            entao contadorMulheresSegundo <- contadorMulheresSegundo + 1;
+        fimse;
+        se sexoAluno = "M"
+            entao contadorHomens <- contadorHomens + 1;
+            senao contadorMulheres <- contadorMulheres + 1;
+        fimse;
+        contador <- contador + 1;
+    fimenquanto;
+
+    imprima(contadorNoite, contadorTerceirao, contadorMulheresSegundo,
+            contadorHomens, contadorMulheres);  
+    
+fim.
+
+--
+
+2)
+
+inicio
+    declare
+        caracter: nomeFuncionario;
+        inteiro: contadorFuncionario;
+        real: horasTrabalhadas, salarioHora, valorInss, salarioBruto,
+              salarioLiquido;
+
+    contadorFuncionario <- 0;
+
+    enquanto contadorFuncionario <= 10 faça
+
+        imprima("Digite o nome do funcionário: ");
+        leia(nome);
+        imprima("Informe as horas trabalhadas: ");
+        leia(horasTrabalhadas);
+        imprima("Informe o salário por hora: ");
+        leia(salarioHora);
+        salarioBruto <- horasTrabalhadas * salarioHora;
+        valorInss <- salarioBruto * 0.11;
+        salarioLiquido <- salarioBruto - valorInss;
+        
+    
+        contadorFuncionario <- contadorFuncionario + 1;
+    fimenquanto;
+
+    imprima(nomeFuncionario, salarioLiquido);
+fim.
+
+--
+
+3)
+inicio
+    declare
+        caracter: nomeFuncionaria;
+        inteiro: classeSalario, pecasFeitas, contadorFuncionaria;
+        real: salarioBase, comissaoSalario, salarioBruto;
+    
+    contadorFuncionaria <- 0;
+
+    enquanto contadorFuncionaria <= 10 faça
+        imprima("Digite o nome da funcionária: ");
+        leia(nomeFuncionaria);
+        imprima("Digite a classe de salaŕio: (1 - R$ 450.00, 2 - R$ 720.00, 3 - R$ 980.00)"); 
+        leia(classeSalario);
+        imprima("Digite a quantidade de peças produzidas: ");
+        leia(pecasFeitas);
+
+        se classeSalario = 1
+            entao salarioBase <- 450.00;
+            senao se classeSalario = 2
+                entao salarioBase <- 720.00;
+                senao salarioBase <- 980.00;
+            fimse;
+        fimse;
+
+        se pecasFeitas <= 60
+            entao comissaoSalario <- salarioBase * 0.05;
+            senao se pecasFeitas <= 120
+                entao comissaoSalario <- salarioBase * 0.075;
+                senao comissaoSalario <- salarioBase * 0.12;
+            fimse;
+        fimse;
+
+        salarioBruto <- salarioBase + comissaoSalario;
+        contadorFuncionaria <- contadorFuncionaria + 1 ;
+    fimenquanto;
+
+    imprima(salarioBase, comissaoSalario, salarioBruto);
+fim.
+
+--
+

@@ -1,0 +1,53 @@
+﻿Acadêmico: Luciano G. Galvão Jr
+Desafio 01 – Algoritmos
+
+inicio
+    declare
+        caracter: nomeCliente, tipoCambio, tipoPintura, tipoMultimidia;
+        inteiro: idadeCliente, contaIdadeAut;
+        real: valorCambio, valorPintura, valorMultimidia, valorTotal, somaIdadeAut, 		  mediaIdadeAut, faturamentoTotal;
+    
+    contaIdadeAut <- 0;
+    somaIdadeAut <- 0;
+    faturamentoTotal <- 0;
+    imprima("Para finalizar, digite FIM");
+    imprima("Digite o nome do cliente: );
+    leia(nomeCliente);
+    enquanto nomeCliente <> "FIM" faça
+        imprima("Informe a idade do cliente: );
+        leia(idadeCliente);
+        imprima("Informe o tipo de câmbio: (M = Manual, A = Automático)");
+        leia(tipoCambio);
+        se tipoCambio = "A"
+            então valorCambio <- 65000.00;
+                  somaIdadeAut <- somaIdadeAut + idadeCliente;
+                  contaIdadeAut <- contaIdadeAut + 1;
+            senão valorCambio <- 55000.00;
+        fimse;
+        imprima("Digite o tipo de pintura desejada: (S = Sólida, M = Metalizada,                             		    P = Perolizada)");
+        leia(tipoPintura);
+        se tipoPintura = "S"
+            então valorPintura <- 0.00;
+            senão se tipoPintura = "M"
+                então valorPintura <- 1500.00;
+                senão valorPintura <- 2100.00;
+            fimse;
+        fimse;
+        imprima("Informe a opção de multimidia: (SK = Sem Kit, CK = Com Kit)");
+        leia(tipoMultimidia);
+        se tipoMultimidia = "SK"
+            então valorMultimidia <- 0.00;
+            senão valorMultimidia <- 1200.00;
+        fimse;
+        valorTotal <- valorCambio + valorPintura + valorMultimidia;
+        faturamentoTotal <- faturamentoTotal + valorTotal;
+        imprima("O valor total a pagar pelo cliente ", nomeCliente," é de R$", 			    valorTotal);
+        imprima("Digite o nome do cliente: ");
+        leia(nomeCliente);
+    fimenquanto;
+    se contaIdadeAut <> 0
+        então mediaIdadeAut <- somaIdadeAut / contaIdadeAut;
+        senão mediaIdadeAut <- 0;
+    fimse;
+    imprima("A média de idade dos clientes que compraram carro automático é: 			",mediaIdadeAut);
+    imprima("O faturamento total da Carruagem em vendas foi no valor de 				R$",faturamentoTotal);

@@ -1,0 +1,102 @@
+1) 
+inicio
+    declare
+        real: fahrenheit, celsius
+        
+    imprima("Digite a temperatura em fahrenheit: );
+    leia (fahrenheit);
+    celsius <- (fahrenheit - 32) * 5/9;
+    imprima(fahrenheit, "ºF equivale a", celsius, "ºC.")
+fim.
+
+2) 
+
+inicio
+    declare
+        inteiro: matriculaCandidato, pesoPortugues, pesoMatematica, pesoDireito;
+        real: notaPortugues, notaMamematica, notaDireito, notaPonderadaPortugues, notaPonderadaMatematica,
+            notaPonderadaDireito,  totalPesos, mediaAritmetica, mediaPonderada, totalNotasPonderadas, totalNotas;
+        
+    imprima("Digite a matricula do candidato: ")
+    leia(matriculaCandidato)
+    imprima("Digite a nota de portugues: ")
+    leia(notaPortugues);
+    imprima("Digite a nota de matematica: ");
+    leia(notaMamematica);
+    imprima("Digite a nota de direito: ");
+    leia(notaDireito);
+    totalNotas <- notaPortugues + notaMamematica + notaDireito;
+
+    pesoPortugues <- 2;
+    pesoMatematica <- 4;
+    pesoDireito <- 3;
+
+    totalPesos <- pesoPortugues + pesoMatematica + pesoDireito;
+
+    notaPonderadaPortugues <- notaPortugues *  pesoPortugues;
+    notaPonderadaMatematica <- notaMamematica * pesoMatematica;
+    notaPonderadaDireito <- notaDireito * pesoDireito;
+
+    totalNotasPonderadas = notaPonderadaPortugues + notaPonderadaMatematica + notaPonderadaDireito;
+
+    mediaAritmetica <- totalNotas / 3;
+    mediaPonderada <- totalNotasPonderadas / totalPesos;
+
+    imprima("A matrícula: ", matricula, " teve média: ", mediaAritmetica," e sua média ponderada é: "mediaPonderada);
+fim.
+
+3) 
+inicio
+    declare
+        caracter: nomeFuncionaria;
+        inteiro: turnoDeTrabalho;
+        real: salarioFuncionaria;
+
+    imprima("Digite o nome da funcionária: ");
+    leia(nomeFuncionaria);
+    imprima("Digite o turno da funcionária (1, 2 ou 3)");
+    leia(turnoDeTrabalho);
+    
+    se turno = 1
+        entao salarioFuncionaria <- 450,00;
+    fimse;
+    
+    se turno = 2
+        entao salarioFuncionaria <- 490,00;
+    fimse;
+    
+    se turno = 3
+        entao salarioFuncionaria <- 650,00;
+    fimse;
+
+    imprima("O salário da funcionaria ", nomeFuncionaria, "é de R$ ", salarioFuncionaria);
+fim.
+
+4)
+inicio
+    declare
+        caracter: nomeFuncionario;
+        real: horasTrabalhadas, salarioBruto, salarioLiquido, valorInss;
+        inteiro: classeFuncional;
+
+    imprima("Digite o nome do funcionário: );
+    leia(nomeFuncionario);
+    imprima("Digite as horas trabalhadas no período: );
+    leia(horasTrabalhadas);
+    imprima("Digite a classe funcional: ");
+    leia(classeFuncional);
+
+    se classeFuncional = 1
+        entao salarioBruto <- horasTrabalhadas * 5;
+    fimse;
+
+    se classeFuncional = 2
+        entao salarioBruto <- horasTrabalhadas * 9;
+    fimse;
+
+    valorInss <- salarioBruto * 0.11;
+
+    salarioLiquido <- salarioBruto - valorInss;
+
+    imprima(O salário do funcionário: ",nomeFuncionario, "é de R$ ", salarioLiquido, " descontado R$",
+            valorInss, "de INSS.");

@@ -1,0 +1,69 @@
+inicio
+    declare
+        caracter: nome, sexo, estado, nomeMenorPeso, sexoMenorPeso, regiao;
+        inteiro: grauInstrucao, idade, somaIdadeMasc, somaIdadeFem, contMasc, contFem, contSul,
+'   contFemOutrosEstadosMenor21, contTotal, contAbaixoPeso;
+        real: peso, altura, mediaMasc, mediaFem, menorPeso, imc, porcentagemAbaixoPeso;
+
+    somaIdadeMas <- 0; somaIdadeFem <- 0; contMasc <- 0; contFem <- 0; contSul <- 0; contFemOutrosEstadosMenor21 <- 0; 
+    mediaMasc <- 0; mediaFem <- 0; menorPeso <- 0; contTotal <- 0, contAbaixoPeso <- 0; porcentagemAbaixoPeso <- 0;
+
+    imprima("Idade -1 para encerrar");
+    imprima("Informe a idade do(a) entrevistado(a): "); leia(idade);
+    enquanto idade <> -1 faça
+        imprima("Informe o nome: "); leia(nome);
+        imprima("Informe o sexo: (M - Masculino, F - Feminino)"); leia(sexo);
+        imprima("Informe o grau de instrução: (0 - Analfabeto, 1 - Fundamental, 2 - Médio, 3 - Superior)"); leia(grauInstrucao);
+        imprima("Informe a sigla do estado de origem: (Exemplo: SC - Santa Catarina)"); leia(estado);
+        imprima("Informe o peso: (Exemplo: 60.0)"); leia(peso);
+        imprima("Informe a altura: (Exemplo: 1.80)"); leia(altura);
+        se sexo = "M"
+            então
+                contMasc <- contMasc + 1;
+                somaIdadeMasc <- somaIdadeMasc + idade;
+
+            senão
+                contFem <- contFem + 1;
+                somaIdadeFem <- somaIdadeFem + idade;
+        fimse;
+        se peso < menorPeso
+            então
+                nomeMenorPeso <- nome;
+                sexoMenorPeso <- sexo;
+                menorPeso <- peso;
+        fimse;
+        imc <- peso/altura**altura;
+        se imc < 18.5
+            então
+                contAbaixoPeso <- contAbaixoPeso + 1;
+        fimse;
+        se estado = "SC" ou "PR" ou "RS"
+            então
+                regiao = "Sul";
+                contSul <- contSul + 1;
+        fimse;
+        se regiao <> "Sul" e idade < 21 e sexo = "F"
+            então
+                contFemOutrosEstadosMenor21 <- contFemOutrosEstadosMenor21 + 1;
+        fimse;
+        contTotal <- contTotal + 1;
+        imprima("Informe a idade do novo entrevistado: (-1 para encerrar)"); leia(idade);
+    fimenquanto;
+    se contMasc <> 0
+        então
+            mediaMasc <- somaIdadeMasc / contMasc;
+    fimse;
+    se contFem <> 0
+        então
+            mediaFem <- somaIdadeFem / contFem;
+    fimse;
+    se contAbaixoPeso <> 0
+        então
+            porcentagemAbaixoPeso <- (contAbaixoPeso/contTotal) * 100;
+    fimse;
+    imprima(mediaMasc, mediaFem);
+    imprima(nomeMenorPeso, menorPeso, sexoMenorPeso);
+    imprima(porcentagemAbaixoPeso);
+    imprima(contSul);
+    imprima(contFemOutrosEstadosMenor21);
+

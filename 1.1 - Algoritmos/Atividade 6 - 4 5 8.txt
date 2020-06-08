@@ -1,0 +1,98 @@
+4)
+inicio
+    declare
+        caracter: nome;
+        inteiro: idade, acumuladorIdade;
+
+    contadorPessoas <- 0;
+    acumuladorIdade <- 0;
+
+    enquanto contacontadorPessoasdor <= 300 faça
+        imprima("Digite o nome e a idade: ");
+        leia(nome, idade);
+
+        se idade > 21
+            entao imprima(nome);
+        fimse;
+
+        acumuladorIdade <- acumuladorIdade + idade;
+
+        contadorPessoas <- contadorPessoas + 1;
+    fimenquanto;
+
+    imprima(acumuladorIdade, nomeAcima21)
+fim.
+
+--
+
+5) 
+inicio 
+    declare
+        caracter: nome, sexo;
+        real: horasTrabalhadas, salarioHora, salarioMes, salarioTotal, salarioMulheres, mediaSalarioMulheres;
+        inteiro: contadorMulheres;
+    salarioTotal = 0;
+    salarioMulheres = 0;
+    mediaSalarioMulheres = 0;
+    contadorMulheres = 0;
+    
+    imprima("Digite FIM para encerrar");
+    imprima("Digite nome: ");
+    leia(nome);
+    enquanto nome <> "FIM" faça
+        imprima("Informe o sexo: (M/F)");
+        leia(sexo);
+        imprima("Digite as horas trabalhadas: ");
+        leia(horasTrabalhadas);
+        imprima("Digite o salário hora: ");
+        leia(salarioHora);
+        salarioMes <- horasTrabalhadas * salarioHora;
+        se sexo = F
+            salarioMulheres <- salarioMulheres + salarioMes;
+            contadorMulheres <- contadorMulheres++;
+        salarioTotal <- salarioTotal + salarioMes;
+        imprima("Digite nome: ");
+        leia(nome);
+    fimenquanto;
+    se contadorMulheres <> 0
+        entao mediaSalarioMulheres <- salarioMulheres / contadorMulheres;
+        senao mediaSalarioMulheres <- 0;
+    imprima(salarioTotal,mediaSalarioMulheres);
+fim.
+
+--
+
+8)
+inicio
+    declare
+        inteiro: notaFiscal, contadorNF, notasAteMil, notasAcimadeMilAteCincoMil,notasAcimaCincoMil;
+        real: valorNF, totalVendas;
+    
+    contadorNF = 0;
+    notasAteMil = 0;
+    notasAcimadeMilAteCincoMil = 0;
+    notasAcimaCincoMil = 0;
+    totalVendas = 0;
+
+    imprima("Digite -1 para encerrar");
+    imprima("Digite o numero da NF: ");
+    leia(notaFiscal);
+    enquanto notaFiscal <> -1 faça
+        imprima("Digite o valor da NF em R$: );
+        leia(valorNF);
+        se valor <= 1000
+            entao notasAteMil <- notasAteMil++;
+            senao se valor > 1000 e <= 5000
+                entao notasAcimadeMilAteCincoMil <- notasAcimadeMilAteCincoMil++;
+                senao notasAcimaCincoMil <- notasAcimaCincoMil++;
+            fimse;
+        fimse;
+        totalVendas <- totalVendas + totalVendas;
+        contadorNF <- contadorNF++;
+        imprima("Digite o numero da NF: ");
+        leia(notaFiscal);
+    fimenquanto;
+    imprima(notasAteMil,notasAcimadeMilAteCincoMil,notasAcimaCincoMil,contadorNF, totalVendas);
+fim.
+    
+--    

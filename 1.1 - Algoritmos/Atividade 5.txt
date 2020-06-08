@@ -1,0 +1,76 @@
+1)
+inicio
+    declare
+        inteiro: tipoCerveja ;
+        caracter: localCliente, nomeCliente;
+        real: descontoPorcento, impostoCerveja, precoGarrafa, quantidadeGarrafas, precoCerveja,
+              precoDesconto, precoImposto, valorBruto, valorLiquido;
+
+    imprima("Digite o nome do cliente: ");
+    leia(nomeCliente);
+    imprima("Digite o tipo de cerveja comprada (1 - Lager, 2 Pilsen)");
+    leia(tipoCerveja);
+    se tipoCerveja = 1
+        entao precoGarrafa <- 2.4;
+        senao precoGarrafa <- 2.1;
+    imprima("Digite a quantidade de garrafas: ");
+    leia(quantidadeGarrafas);
+    se quantidadeGarrafas > 1000
+        entao descontoPorcento <- 0.10;
+        senao descontoPorcento <- 0.02;
+    fimse;
+    precoCerveja <- precoGarrafa * quantidadeCerveja;
+    imprima("Informe a localidade do cliente: (A - SC, B - Fora SC, C - Fora Brasil)");
+    leia(localCliente);
+    se localCliente = A
+        entao impostoCerveja <- precoCerveja * 0.60;
+        senao se localCliente = B
+            então impostoCerveja <- precoCerveja * 0.65;
+            senao impostoCerveja <- precoCerveja * 0.80;
+        fimse;
+    fimse;
+    precoImposto <- precoCerveja * impostoCerveja;
+    valorBruto <- precoCerveja + precoImposto;
+    valorLiquido <- valorBruto - descontoPorcento;
+    imprima(nomeCliente, " na compra de ", quantidadeGarrafas, "garrafas, o valor fica no total de: R$, "valorLiquido", 
+            sendo R$ ", precoDesconto," de desconto no valor original de: R$", valorBruto, ".");
+fim.
+
+2) 
+
+inicio
+    declare
+        caracter: tipoClasse;
+        real: consumo, valorConsumo, taxaBase, valorBruto, pis, cofins, valorTotal;
+        
+    imprima("Por favor digite o tipo de classe: (R - Residencial, C - Comercial, E - Empresarial)");
+    leia(tipoClasse);
+    se tipoClasse = R
+        então taxaBase <- 4.84;
+        senao se tipoClasse = C
+            entao taxaBase <- 6.80;
+            senao taxaBase <- 15.00;
+        fimse;
+    fimse;
+    imprima("Digite o consumo da unidade: ");
+    leia(consumo);
+    se consumo <= 10
+        entao valorConsumo <- consumo * 2.99;
+        senao se consumo >= 25
+            entao valorConsumo <- (consumo * 5.48) + 29.90;
+            senao se consumo >= 50
+                entao valorConsumo <- (consumo * 7.69) + 112.10;
+                senao valorConsumo <- (consumo * 9.22) + 227,45;
+            fimse;
+        fimse;
+    fimse;
+    valorBruto <- taxaBase + valorConsumo;
+    pis <- valorBruto * 0.0065;
+    cofins <- valorBruto * 0.03;
+    valorLiquido <- valorBruto + pis + cofins;
+
+    imprima("A unidade teve o consumo de: ", consumo," totalizando o valor de R$ ", valorLiquido," sendo R$ ",
+            valorBruto," de valor base, R$ ", pis, " de PIS e R$ ",cofins," de cofins.");
+fim.
+
+    

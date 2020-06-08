@@ -1,0 +1,104 @@
+1)
+inicio
+    declare
+        vet=vetor[1:10] inteiro;
+        inteiro: cont;
+
+    para cont de 1 até 10 faça
+        vet[cont] <- 0;
+        imprima (vet[cont]);
+    fimpara;
+fim.
+
+--
+
+2)
+inicio
+    declare
+        tabela=vetor[1:10] inteiro;
+        inteiro: cont, soma;
+        real: media;
+
+    para cont de 1 até 10 faça
+        tabela[cont] <- cont * 10;
+    fimpara;
+
+    para cont de 1 até 10 faça
+        soma <- soma + tabela[cont];
+    fimpara;
+
+    media <- soma/10;
+
+    imprima("A média é: ", media);
+
+--
+
+3)
+inicio
+    declare
+        altura=vetor[1:100] real;
+        inteiro: cont;
+    
+    para cont de 1 até 100 faça
+        imprima("Digite a altura do atleta ", cont, ":"); leia(altura[cont]);
+    fimpara;
+
+    para cont de 1 até 100 faça
+        se altura[cont] > 1.90
+            então imprima("Matrícula: ", cont);
+        fimse;
+        se cont>= 20 e cont <= 30
+            então imprima("Altura do atleta de matrícula ", cont," é de: ", altura[cont]);
+        fimse;
+    fimpara;
+fim.
+
+--
+
+4)
+
+inicio
+    declare
+        vet=vetor[1:10] inteiro;
+        inteiro: cont, maior, posicao;
+
+        maior <- 0;
+
+    para cont de 1 até 10 faça
+        imprima("Digite um valor: ");leia(vet[cont]);
+    fimpara;
+    
+    para cont de 1 até 10 faça
+        se vet[cont] > maior
+            então maior <- vet[cont];
+                  posicao <- cont;
+        fimse;
+    fimpara;
+    imprima("O maior valor é: ", vet[cont]," na posição: ",cont);
+fim.
+
+--
+
+5)
+
+inicio
+    declare
+        nome=vetor[1:50] caracter;
+        idade=vetor[1:50] inteiro;
+        inteiro: cont, maior;
+
+    maior <- 0;
+    para cont de 1 até 50 faça
+        imprima("Informe o nome: ); leia(nome[cont]);
+        imprima("Informe a idade: ); leia(idade[cont]);
+        se idade[cont] > maior
+            então maior <- idade[cont];
+        fimse;
+    fimpara;
+    imprima("A maior idade é: ", maior);
+    para cont de 1 até 50 faça
+        se idade[cont] = maior
+            então imprima(nome[cont]);
+        fimse;
+    fimpara;
+fim.

@@ -1,0 +1,18 @@
+Luciano:
+7. Porque muitas vezes um compilador não consegue aproveitar o conjunto de instruções de cada processador?
+Este comportamento ocorre porque nem sempre o desenvolvedor conhece tão bem a arquitetura, os recursos do processador e a melhor maneira de acessá-los por meio da programação.
+
+8. Quais os principais recursos pertencentes a um processador?
+Os processadores atuais, como Pentium, PowerPC, UltraSparc, e outros, incorporam diversos recursos computacionais, como memória cachê, pipeline, unidade de ponto flutuante,unidade de branch, que não existiam nas primeiras gerações de processadores.
+
+9. Qual unidade esta presente nos processadores desde o primeiro processador?
+ULA (Unidade Lógica Aritmética), ou em inglês como ALU (Aritmetic Logic Unit), e sua largura (em bits) é determinada pelo barramento de dados do processador. Esta é uma unidade presente desde o primeiro processador e é considerada como a primeira unidade funcional, devido a estar presente no modelo de máquina de Von Neumann (STALLINGS, 2002).
+
+10. Desde quando foi incorporada a unidade de ponto flutuante nos processadores Intel?
+Esta unidade foi incorporada, a partir dos 80486DX (HYDE, 2003), para possibilitar a execução de operações de ponto flutuante no próprio processador.
+
+11. Como foi conseguido diminuir o tempo de execução e acelerar a execução de instruções nos processadores?
+A idéia de um Pipeline é a de dividir o ciclo da instrução em estágios consecutivos (STALLINGS, 2002), como uma linha de produção. Desta forma, consegue-se acelerar a execução das instruções, resultando em uma redução do tempo de execução e por conseqência o aumento do desempenho.
+
+12. O que pode impactar no desempenho do PIPELINE?
+O pipeline é determinante na execução dos programas. Análises de comportamento de programas mostram que desvios condicionais são tomados em mais de 30% das vezes (LILJA, 1988), e isto, obviamente, tem um impacto direto sobre o desempenho do pipeline e por conseqüência também sobre o desempenho geral do sistema.

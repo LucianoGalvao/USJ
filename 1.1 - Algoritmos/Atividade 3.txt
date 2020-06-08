@@ -1,0 +1,152 @@
+1)
+a)
+inicio
+    declare
+        caracter: nomeProfessor, titulo;
+        real: horaAb, horasTrabAberto, horasTrabInCompany,
+            salarioBase, salarioBruto, salarioLiquido, valorHoraAberto,
+            valorHoraInCompany, gratificacao, inss;
+        
+    
+    imprima("Digite o nome do professor: );
+    leia(nomeProfessor);
+    imprima("Digite o título (Especialista, Mestrado
+            ou Doutorado): ");
+    leia(titulo);
+    se titulo = "Especialista"
+        entao titulo <- "E";
+        senao se titulo = "Mestrado";
+            entao titulo <- "M";
+            senao se titulo = "Doutorado";
+                entao titulo = "D";
+            fimse;
+        fimse;
+    fimse;
+    imprima("Digite as horas trabalhadas em cursos abertos: );
+    leia(horasTrabAberto);
+    imprima("Digite as horas trabalhas In Company: );
+    leia(horasTrabInCompany);
+
+    valorHoraAberto <- 15.00;
+    valorHoraInCompany <- 35.00
+
+    salarioBase <- (horasTrabAberto * 15) + (horasTrabInCompany * 35);
+    imprima("O salário base do professor: ",nomeProfessor,
+            ' é de R$", salarioBase, ".");
+b)
+     
+    se titulo = "E"
+        gratificacao <- salarioBase * 0.05;
+        senao se titulo = "M"
+            entao gratificacao <- salarioBase * 0.15;
+            senao se titulo = "D"
+                entao gratificacao <- salarioBase * 0.25;
+            fimse;
+        fimse;
+    fimse;
+    salarioBruto <- salarioBase + gratificacao;
+    imprima("O salário bruto é de R$", salarioBruto, ".");
+
+c)
+    se salarioBruto <= 1500.00
+        entao inss <- salarioBruto * 0.08;
+        senao inss <- salarioBruto * 0.11;
+    fimse;
+    salarioLiquido <- salarioBruto - inss;
+    
+    imprima("O salário liquido é de R$", salarioLiquido, ".");
+fim.
+
+---
+2)
+
+inicio
+    declare 
+        caracter: categoriaCliente, tipoSorvete;
+        real: pesoSorvete, precoSorvete, valorDesconto, valorPromocao;
+
+    imprima("Qual tipo de sorvete foi comprado? (C = Comum,A = Artesanal)");
+    leia(tipoSorvete);
+    imprima("Qual o peso? (Em quilos)");
+    leia(pesoSorvete);
+    imprima("Qual a categoria de cliente? (I = Idoso, E = Estudante, P = Professor, D = Demais clientes)");
+    leia(categoriaCliente);
+a)
+    se tipoSorvete = C
+        entao precoSorvete <- pesoSorvete * 23.80;
+        senao precoSorvete <- precoSorvete * 42.50;
+    fimse;
+b)  
+    se categoriaCliente = I
+        entao valorDesconto <- precoSorvete * 0.10;
+        senao se categoriaCliente = E
+            entao valorDesconto <- precoSorvete * 0.30;
+            senao se categoriaCliente = P
+                entao valorDesconto = precoSorvete * 0.15;
+                senao valorDesconto = 0;
+            fimse;
+        fimse;
+    fimse;
+
+c)
+    valorPromocao <- precoSorvete - valorDesconto;
+
+    imprima("O preço total é de: R$", precoSorvete, ", sendo aplicado o desconto de: R$", valorDesconto," para o cliente tipo,
+            categoriaCliente, ", o valor total é de: R$", valorPromocao, ".");
+
+--
+
+3)
+inicio
+    declare
+        caracter: nomeAluno, sexoAluno, destinoMissao, tipoCurso, tipoQuarto;
+        inteiro: idadeAluno, tipoHospedagem, acrescimo;
+        real: precoAcomodacao, precoCurso, precoTotalCurso;
+
+    imprima("Digite o nome do aluno: ");
+    leia(nomeAluno);
+    
+    imprima("Digite a idade: ");
+    leia(idadeAluno);
+
+    imprima("Sexo: (M = Masculino, F = Feminino)");
+    leia(sexoAluno);
+
+    imprima("Qual a cidade desejada? (OL = Orlando, NY = New York, SF = San Francisco)");
+    leia(destinoMissao);
+
+    se destinoMissao = OL
+        entao precoAcomodacao <- 7050.00;
+        senao se destinoMissao = NY
+            entao precoAcomodacao <- 8300.00;
+            senao precoAcomodacao <- 9140.00;
+        fimse;
+    fimse;
+
+    imprima("Qual o tipo de acomodação desejada? (1 = Apto Duplo, 2 = Apto Single (+40% valor))");
+    leia(tipoHospedagem);
+
+    se tipoHospedagem = 1
+        entao acrescimo <- 0;
+        senao acrescimo <- precoAcomodacao * 0.40;
+    fimse;
+
+    se tipoHospedagem = 1
+        entao tipoQuarto <- "Single";
+        senao tipoQuarto <- "Double";
+    fimse;
+
+    imprima("Qual o tipo de curso? (F = Full time, P = Part time)");
+    leia(tipoCurso);
+
+    se tipoCurso = F
+        entao precoCurso <- 2500.00;
+        senao precoCurso <- 1650.00;
+    fimse;
+
+    precoTotalCurso <- precoAcomodacao + acrescimo + precoCurso;
+
+    imprima(nomeAluno, " o valor total do seu curso ficou em: R$",precoTotalCurso, " sendo R$ ", precoAcomodacao, "da acomodacao, R$ ", acrescimo," de
+            acrescimo e R$ ", precoCurso, " do curso com acomodação em ", destinoMissao, " em um quarto ", tipoQuarto, ".");
+    
+    

@@ -1,0 +1,31 @@
+inicio
+    declare
+        caracter: periodo, localAbast;
+        real: consumo, tarifa, valorBruto, valorDesc, valorLiquido, valorIVA, valorTotal;
+
+    imprima("Informe os kWh abastecidos: "); leia(consumo);
+    imprima("Informe o período em que foi abastecido (D - Diurno, N - Noturno): "); leia(periodo);
+    imprima("Informe o local em que foi abastacido (C - Casa, R - Rede Pública, P - Posto): "); leia(localAbast);
+    
+    se periodo = "D"
+        então
+            tarifa <- 0.75;
+            valorBruto <- tarifa * consumo;
+        senão
+            tarifa <- 0.91;
+            valorBruto <- tarifa * consumo;
+    fimse;
+
+    se localAbast = "C"
+        entao valorDesc <- valorBruto * 0.2;
+        senao se localAbast = "R"
+            entao valorDesc <- valorBruto * 0.16;
+            senao valorDesc <- 0;
+        fimse;
+    fimse;
+
+    valorLiquido <- valorBruto - valorDesc;
+    valorIVA <- valorLiquido * 0.23;
+    valorTotal <- valorLiquido - valorIVA;
+
+    imprima(consumo, valorBruto, valorDesc, valorLiquido, valorIVA, valorTotal);
